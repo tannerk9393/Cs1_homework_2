@@ -16,7 +16,7 @@ for count = 1; count <= 3; count = count + 1
    result = result / a
    Put result to output
    
-//Excercise #2: Using a while-loop to solve 3 separate linear equations
+//Exercise #2: Using a while-loop to solve 3 separate linear equations
 integer a
 integer b 
 integer count
