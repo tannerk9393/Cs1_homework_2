@@ -56,8 +56,9 @@ else
 //Need some kind of halt here for else block
  
 //Adding 1 to one's complement to make two's complement
-for i = 7 ; i > -1; i = i - 1
-   X[i] = Fulladder(X[i], addOne, carrybit)
+function Main()
+    for i = 7 ; i > -1; i = i - 1
+        X[i] = Fulladder(X[i], addOne, carrybit)
 
 //Printing two's complement from array
 for i = 0; i < 8; i = i -1 //moving leftward through array
