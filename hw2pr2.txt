@@ -1,0 +1,64 @@
+// CSCI 1550: HW 2, Problem 2
+// Filename: hw2pr2.txt 
+// Name: Tanner Kreifels
+//
+// Exercise: The 2s-complement for 8-bit integers
+
+Step 1: Start with an 8-bit number
+Step 2: Look at left-most bit, if it is a '1', the number is negative
+Step 2: If the number is negative, take all of the bits as an separate input
+Step 3: Run each digit input into a separate NOT gate to take 1's complement
+Step 4: From each NOT gate, run to separate output bit
+Step 5: Use these outputs as new input digits
+Step 6: With these new inputs, use Full Adders to add 1 to your 1's complement number
+Step 7: Add 1 to right most bit with intial carry bit of 0
+Step 8: If 1 + right bit = 2, carry bit = 1 and sum bit = 1
+Step 9: Otherwise carry bit = 0 and sum bit = 1
+Step 10: Continue adding using normal arithmetic from right to left until you reach end of inputs
+Step 11: Ignore 9th bit if there is one
+Step 11: Final output is the 2's complement
+
+integer array(8) X
+integer i
+integer addOne
+integer carrybit
+integer temp
+
+// for first full carry adder
+carrybit = 0
+//for making two's complement
+addOne = 1 
+
+function Fulladder(arrayBit, addOne, carrybit) returns newBit
+   temp = arrayBit + addOne + carrybit
+   if temp = 2
+      carrybit = 1
+      addOne = 0
+      newBit = 0
+    //2 = 10 in binary corresponding to setting carrybit|newBit to 1 and 0
+   else
+      carrybit = 0
+      addOne = 0
+      newBit = 1
+//addOne set to 0 because it's essentially adding 00000001
+//now can just worry about adding the carrybit to the arrayBit
+
+//Setting 8bit integer
+for i = 0; i < 8; i= i + 1
+   X[i] = Get next input
+   
+//one's complement only if it's a negative sign bit
+if X[0] == 1
+   NOT X[0] through X[7]
+else 
+   Put X[0] through X[7] to output 
+//Positive number, no need to take 1 or 2's complement   
+//Need some kind of halt here for else block
+ 
+//Adding 1 to one's complement to make two's complement
+for i = 7 ; i > -1; i = i - 1
+   X[i] = Fulladder(X[i], addOne, carrybit)
+
+//Printing two's complement from array
+for i = 0; i < 8; i = i -1 //moving leftward through array
+   Put X[i] to output

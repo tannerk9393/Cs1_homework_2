@@ -1,0 +1,32 @@
+// CSCI 1550: HW 2, Problem 5
+// Filename: hw2pr5.txt 
+// Name: Tanner Kreifels
+//
+// Exercise #1: Using a For-loop to solve 3 separate linear equations.
+
+integer a
+integer b 
+integer count
+float result
+
+for count = 1; count <= 3; count = count + 1
+   a = Get next input
+   b = Get next input
+   result = 0 - b
+   result = result / a
+   Put result to output
+   
+//Excercise #2: Using a while-loop to solve 3 separate linear equations
+integer a
+integer b 
+integer count
+float result
+
+count = 0
+while count < 3 
+   a = Get next input
+   b = Get next input
+   result = 0 - b
+   result = result / a
+   Put result to output
+   count = count + 1
